@@ -1,0 +1,49 @@
+﻿@using PizzaAppWebApp.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="~/css/site.css" />
+    var couriers = (List<CourierViewModel>)ViewBag.Courier;
+}
+
+<br />
+
+<main>
+    <div class="form-group" style="float:right">
+        <a class="btn btn-outline-dark" href="/courier/create">Add New Courier</a>
+    </div>
+
+    <h1>Couriers</h1>
+    
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Date of Recruitment</th>
+                <th scope="col">Action</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in couriers)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Mail</td>
+                        <td>@item.Phone</td>
+                        <td>@item.DateOfRecruitment</td>
+                        <td>
+                            <a type="button" class="btn btn-outline-success" href="/courier/update/@item.ID">Güncelle</a>
+                        </td>
+                        <td>
+                            <a type="button" class="btn btn-outline-danger" href="/courier/delete/@item.ID">Sil</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</main>

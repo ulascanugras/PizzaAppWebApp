@@ -1,0 +1,38 @@
+﻿@using PizzaAppWebApp.Models
+@model CourierViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<h1>Index</h1>
+<h2>@(TempData["mesaj"])</h2>
+
+<form asp-action="Save" asp-controller="Courier" method="post">
+
+    <div class="form-group">
+        <label asp-for=Name></label>
+        <input class="form-control" asp-for="Name" aria-label="Name" placeholder="Courier Name" />
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Phone></label>
+        <input class="form-control" asp-for="Phone" aria-label="Phone" placeholder="Courier Phone" />
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Mail">Email address</label>
+        <input type="email" class="form-control" asp-for="Mail" id="exampleInputEmail1" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+        <label asp-for=DateOfRecruitment></label>
+        <input type="date" class="form-control" asp-for="DateOfRecruitment" aria-label="DateOfRecruitment" placeholder="DateOfRecruitment" />
+
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Kaydet" style="float:right" />
+</form>

@@ -1,0 +1,39 @@
+﻿@using PizzaAppWebApp.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="~/css/site.css" />
+    var users = (List<UserViewModel>)ViewBag.Users;
+}
+
+<main>
+    <h1>Users</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Phone</th>
+                <th scope="col">UserName</th>
+                <th scope="col">Action</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in users)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Mail</td>
+                        <td>@item.Phone</td>
+                        <td>@item.UserName</td>
+                        <td>
+                            <a type="button" class="btn btn-outline-danger" href="/user/delete/@item.ID">Sil</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</main>
